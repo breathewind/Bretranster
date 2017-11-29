@@ -1,7 +1,7 @@
 /***********************************************************************
  *           Author: Wenlong Wang
  *      Create date: 20/11/2017
- * Modifiacion date: 28/11/2017
+ * Modifiacion date: 29/11/2017
  *      Description: Configuration information
  *  Functoin Number: 0XX - normal logic
  *                   1XX - slot
@@ -74,6 +74,16 @@ public:
     //Function 821: Set file dialog title
     void setFile_dialoag_title(const QString &value);
 
+    //Function 822: Get Crowdin activity url
+    QString getCrowdin_activity_url() const;
+    //Function 823: Set Crowdin activity url
+    void setCrowdin_activity_url(const QString &value);
+
+    //Function 824: Get option dialog title text
+    QString getOption_dialog_title() const;
+    //Function 824: Set option dialog title text
+    void setOption_dialog_title(const QString &value);
+
     //Function 900: Print all language related information
     void printLanguage_information();
 
@@ -89,6 +99,8 @@ private:
     QString origin_text;
     QString formated_text;
     QString file_dialoag_title;
+    QString crowdin_activity_url;
+    QString option_dialog_title;
 };
 
 #endif // C0001_CONF_INFO_H

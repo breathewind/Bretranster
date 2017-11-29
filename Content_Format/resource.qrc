@@ -17,5 +17,6 @@
         <file>conf/language_info.conf</file>
         <file>conf/language/cn.conf</file>
         <file>conf/language/en.conf</file>
+        <file>conf/project_info.conf</file>
     </qresource>
 </RCC>

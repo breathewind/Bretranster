@@ -1,7 +1,7 @@
 /***********************************************************************
  *           Author: Wenlong Wang
  *      Create date: 20/11/2017
- * Modifiacion date: 28/11/2017
+ * Modifiacion date: 29/11/2017
  *      Description: Configuration information
  *  Functoin Number: 0XX - normal logic
  *                   1XX - slot
@@ -123,7 +123,7 @@ bool Conf_Info::getLanguage_information(QString filename)
  *             Name: getLanguage_details
  *      Function ID: 003
  *      Create date: 21/11/2017
- * Modifiacion date: 28/11/2017
+ * Modifiacion date: 29/11/2017
  *      Description: Retrieve language details from file
  ***********************************************************************/
 bool Conf_Info::getLanguage_details()
@@ -143,6 +143,8 @@ bool Conf_Info::getLanguage_details()
     origin_text = in.readLine();
     formated_text = in.readLine();
     file_dialoag_title = in.readLine();
+    crowdin_activity_url = in.readLine();
+    option_dialog_title = in.readLine();
     file.close();
 
     //    printLanguage_information(); //Function 900
@@ -375,6 +377,54 @@ QString Conf_Info::getFile_dialoag_title() const
 void Conf_Info::setFile_dialoag_title(const QString &value)
 {
     file_dialoag_title = value;
+}
+
+/***********************************************************************
+ *             Name: getCrowdin_activity_url
+ *      Function ID: 822
+ *      Create date: 29/11/2017
+ * Modifiacion date: 29/11/2017
+ *      Description: Get Crowdin activity url
+ ***********************************************************************/
+QString Conf_Info::getCrowdin_activity_url() const
+{
+    return crowdin_activity_url;
+}
+
+/***********************************************************************
+ *             Name: setCrowdin_activity_url
+ *      Function ID: 823
+ *      Create date: 29/11/2017
+ * Modifiacion date: 29/11/2017
+ *      Description: Set Crowdin activity url
+ ***********************************************************************/
+void Conf_Info::setCrowdin_activity_url(const QString &value)
+{
+    crowdin_activity_url = value;
+}
+
+/***********************************************************************
+ *             Name: getOption_dialog_title
+ *      Function ID: 824
+ *      Create date: 29/11/2017
+ * Modifiacion date: 29/11/2017
+ *      Description: Get option dialog title text
+ ***********************************************************************/
+QString Conf_Info::getOption_dialog_title() const
+{
+    return option_dialog_title;
+}
+
+/***********************************************************************
+ *             Name: setOption_dialog_title
+ *      Function ID: 825
+ *      Create date: 29/11/2017
+ * Modifiacion date: 29/11/2017
+ *      Description: Set option dialog title text
+ ***********************************************************************/
+void Conf_Info::setOption_dialog_title(const QString &value)
+{
+    option_dialog_title = value;
 }
 
 /***********************************************************************

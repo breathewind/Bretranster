@@ -7,7 +7,10 @@
 #ifndef C0000_PARAMETERS_H
 #define C0000_PARAMETERS_H
 
+#include <QString>
+
 #define LANGUAGE_INFO_FILE "conf/language_info.conf"
 #define PROJECT_INFO_FILE "conf/project_info.conf"
+//#define PROJECT_INFO_FILE ":/file/conf/project_info.conf"
 
 #endif // C0000_PARAMETERS_H

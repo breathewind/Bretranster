@@ -1,7 +1,7 @@
 /***********************************************************************
  *           Author: Wenlong Wang
  *      Create date: 20/11/2017
- * Modifiacion date: 28/11/2017
+ * Modifiacion date: 29/11/2017
  *      Description: Main window of content format application
  *  Functoin Number: 0XX - normal logic
  *                   3XX - slot
@@ -49,17 +49,17 @@ MainWindow::~MainWindow()
  *             Name: initilaize
  *      Function ID: 002
  *      Create date: 20/11/2017
- * Modifiacion date: 28/11/2017
+ * Modifiacion date: 29/11/2017
  *      Description: Initialization
  ***********************************************************************/
 bool MainWindow::initilaize()
 {
     setWindowTitle("Bretranster");
-    loadProject_information(PROJECT_INFO_FILE);
     if(!conf_info->getLanguage_information(LANGUAGE_INFO_FILE)){
         QMessageBox::critical(NULL, "Error", "Language configuration file is missing");
         return false;
     }
+    loadProject_information(PROJECT_INFO_FILE);
     option_dialog->setOptions_information(conf_info);
     updateLanguage_details();
     return true;
@@ -128,7 +128,7 @@ QStringList MainWindow::handleInput_text(QString text)
  *             Name: updateLanguage_details
  *      Function ID: 005
  *      Create date: 21/11/2017
- * Modifiacion date: 28/11/2017
+ * Modifiacion date: 29/11/2017
  *      Description: Update language details
  ***********************************************************************/
 void MainWindow::updateLanguage_details()
@@ -136,10 +136,12 @@ void MainWindow::updateLanguage_details()
     ui->label_project_name->setText(conf_info->getProject_name());
     ui->label_project_crowdin->setText(conf_info->getProject_crowdin());
     ui->label_project_url->setText(conf_info->getProject_url());
+    ui->label_your_contribution_url->setText(conf_info->getCrowdin_activity_url());
     ui->label_project_info->setText(conf_info->getProject_info());
     ui->label_source->setText(conf_info->getOrigin_text());
     ui->label_destination->setText(conf_info->getFormated_text());
     file_dialog->setWindowTitle(conf_info->getFile_dialoag_title());
+    option_dialog->setWindowTitle(conf_info->getOption_dialog_title());
 }
 
 /***********************************************************************
@@ -308,7 +310,7 @@ void MainWindow::on_actionOptions_triggered()
  *             Name: on_actionInformation_triggered
  *      Function ID: 109
  *      Create date: 20/11/2017
- * Modifiacion date: 24/11/2017
+ * Modifiacion date: 29/11/2017
  *      Description: Slot for Information button pressed
  ***********************************************************************/
 void MainWindow::on_actionInformation_triggered()
@@ -317,7 +319,7 @@ void MainWindow::on_actionInformation_triggered()
     about_text = "Author : Wenlong Wang\n";
     about_text += "Version : 1.0.0.0\n";
     about_text += "Create Date : 20/11/2017\n";
-    about_text += "Last Modification : 28/11/2017\n";
+    about_text += "Last Modification : 29/11/2017\n";
     QMessageBox::about(this,"Information",about_text);
 }
 
@@ -365,7 +367,7 @@ void MainWindow::on_actionSave_project_information_triggered()
  *             Name: getProcessed_data
  *      Function ID: 113
  *      Create date: 28/11/2017
- * Modifiacion date: 28/11/2017
+ * Modifiacion date: 29/11/2017
  *      Description: Slot for receiving processed data
  ***********************************************************************/
 void MainWindow::getProcessed_data(QStringList data_list, QStringList file_info_list)
@@ -374,6 +376,7 @@ void MainWindow::getProcessed_data(QStringList data_list, QStringList file_info_
     converted_text.append("I performed translation for " + ui->lineEdit_project_name->text() + " in simplified Chinese.\n");
     converted_text.append(">");
     converted_text.append(ui->textEdit_project_info->toPlainText());
+    converted_text.append("\n");
     converted_text.append("\n You can check " + ui->lineEdit_project_name->text() + " project information on ");
     converted_text.append("[crowdin](" + ui->lineEdit_project_crowdin->text() + ")");
     converted_text.append(" or ");
