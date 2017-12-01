@@ -4,7 +4,7 @@ This is the repository for **Bretranster** (**Trans**ation File Forma**ter** mad
 
 It is designed for formating file of translation work on [Utopian.io](https://utopian.io). 
 
-It gets the activity report from [**Crowdin**](https://crowdin.com/) as input and perform a well formatted file for being posted on [Utopian.io](https://utopian.io).
+It gets the activity report from [**Crowdin**](https://crowdin.com/) as inputs and perform a well formatted file for being posted on [Utopian.io](https://utopian.io).
 
 Any contribution and advice is welcomed! 
 
